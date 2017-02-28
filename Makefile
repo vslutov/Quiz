@@ -4,11 +4,11 @@ DEST = pdf
 all :
 	( \
 		cd tex && \
-		ls *.tex | xargs -n 1 pdflatex -interaction=batchmode  && \
+		ls autumn/*/*.tex | xargs -n 1 pdflatex -interaction=batchmode  && \
 		rm -f *.aux *.log *.out && \
 		cd - && \
 		mkdir -p $(DEST) && \
-	  mv $(SRC)/*.pdf $(DEST) \
+		mv $(SRC)/*.pdf $(DEST) \
 	)
 
 .PHONY : all clean
