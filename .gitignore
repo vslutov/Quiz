@@ -1,5 +1,6 @@
 ## Project-specific
 .*.swp
+*.zip
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
