@@ -13,6 +13,7 @@
 \usepackage{hyperref}
 \usepackage{array}
 \usepackage{fancyhdr}
+\usepackage[table]{xcolor}
 \pagestyle{fancy}
 \lhead{Опрос по качеству образования за осенний семестр 2016 года}
 \cfoot{Для старосты: пожалуйста, после заполнения группой анкет, сложите бланки в шкаф возле кабинета 646, спасибо.}
@@ -26,9 +27,21 @@
 \newcommand{\choices}{
   \textcircled{а} \textcircled{б} \textcircled{в}}
 
-\newcommand{\course}[1]{
-  \hline
-    #1 & & & & \\[1cm]
+\def\lecture{{l}}
+\def\seminar{{s}}
+
+\newcommand{\course}[2][a]{
+  #2 & &
+  \def\CourseType{{#1}}
+  \ifx\CourseType\seminar
+    \cellcolor[gray]{0.8}
+  \fi
+  &
+  \def\CourseType{{#1}}
+  \ifx\CourseType\lecture
+    \cellcolor[gray]{0.8}
+  \fi
+ & \\[1cm] \hline
 }
 
 \newcommand{\coursetable}[1]{
@@ -47,6 +60,7 @@
 }
 
 \input{mixins/firstcourse.tex}
+\input{mixins/secondcourse.tex}
 
 \newcommand{\header}[1]{
 
