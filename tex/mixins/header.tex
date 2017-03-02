@@ -13,6 +13,12 @@
 \usepackage{hyperref}
 \usepackage{array}
 \usepackage{fancyhdr}
+\usepackage[table]{xcolor}
+\usepackage{setspace}
+
+% \fontsize{10pt}{0.8}\selectfont
+\renewcommand{\baselinestretch}{0.95}
+
 \pagestyle{fancy}
 \lhead{Опрос по качеству образования за осенний семестр 2016 года}
 \cfoot{Для старосты: пожалуйста, после заполнения группой анкет, сложите бланки в шкаф возле кабинета 646, спасибо.}
@@ -26,9 +32,21 @@
 \newcommand{\choices}{
   \textcircled{а} \textcircled{б} \textcircled{в}}
 
-\newcommand{\course}[1]{
-  \hline
-    #1 & & & & \\[1cm]
+\def\lecture{{l}}
+\def\seminar{{s}}
+
+\newcommand{\course}[2][a]{
+  #2 & &
+  \def\CourseType{{#1}}
+  \ifx\CourseType\seminar
+    \cellcolor[gray]{0.8}
+  \fi
+  &
+  \def\CourseType{{#1}}
+  \ifx\CourseType\lecture
+    \cellcolor[gray]{0.8}
+  \fi
+ & \\[24pt] \hline
 }
 
 \newcommand{\coursetable}[1]{
@@ -55,7 +73,7 @@
 
   Студенческий Совет ВМК проводит опрос по качеству образования. Данная анкета включает в себя список вопросов по каждому предмету.
 
-  Оцените каждый предмет по четырём пунктам: общее впечатление от предмета, качество лекций, качество семинаров и ваши собственные усилия по его изучению.
+  % Оцените каждый предмет по четырём пунктам: общее впечатление от предмета, качество лекций, качество семинаров и ваши собственные усилия по его изучению.
 
   Если у вас появятся идеи или жалобы по качеству образования --- пишите в приемную Студенческого Совета ВМК \textbf{https://vk.com/cmcsovet} или на почту \textbf{studsovet@cs.msu.ru} с темой ККО.
 

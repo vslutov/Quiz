@@ -8,7 +8,8 @@ all :
 		rm -f *.aux *.log *.out && \
 		cd - && \
 		mkdir -p $(DEST) && \
-		mv $(SRC)/*.pdf $(DEST) \
+		mv $(SRC)/*.pdf $(DEST) && \
+		zip -9 -r pdf.zip pdf \
 	)
 
 .PHONY : all clean
